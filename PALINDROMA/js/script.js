@@ -12,16 +12,23 @@ const result = document.getElementById('risultato');
 // console.log(secondWord);
 
 inputBtn.addEventListener('click', function(){
+
     let firstWord = document.getElementById('parola_uno').value.toLowerCase();
-    const check = checkPalindrome(firstWord);
-    if(check){
-        result.classList.remove('red');
-        result.innerText = 'LA PAROLA E\' PALINDROMA!';
-        result.classList.add('green');
-    }else{
-        result.classList.remove('green');
-        result.innerText = 'LA PAROLA NON E\' PALINDROMA!';
+    
+    if(firstWord === ''){
+        result.innerText = 'CAMPO VUOTO!';
         result.classList.add('red');
+    }else{
+        const check = checkPalindrome(firstWord);
+        if(check){
+            result.classList.remove('red');
+            result.innerText = 'LA PAROLA E\' PALINDROMA!';
+            result.classList.add('green');
+        }else{
+            result.classList.remove('green');
+            result.innerText = 'LA PAROLA NON E\' PALINDROMA!';
+            result.classList.add('red');
+        }
     }
 })
 
