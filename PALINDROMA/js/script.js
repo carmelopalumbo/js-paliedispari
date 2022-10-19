@@ -14,7 +14,7 @@ const result = document.getElementById('risultato');
 inputBtn.addEventListener('click', function(){
 
     let firstWord = document.getElementById('parola_uno').value.toLowerCase();
-    
+
     if(firstWord === ''){
         result.innerText = 'CAMPO VUOTO!';
         result.classList.add('red');
