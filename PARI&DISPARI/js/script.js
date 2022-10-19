@@ -26,7 +26,7 @@ resetBtn.addEventListener('click', function(){
 inputBtn.addEventListener('click',function(){
 
     //blocca il programma se non vengono inseriti entrambi i valori
-    if(userNum.value === "" || userChoice === "" ){
+    if(userNum.value === "" || userChoice.value === "" ){
         winResult.innerHTML = 'INSERISCI VALORI VALIDI!';
     }else{
         //verifico il vincitore
