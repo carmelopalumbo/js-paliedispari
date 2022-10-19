@@ -50,9 +50,7 @@ function randomNumber(){
 function checkPariDispari(num1, num2){
     const somma = num1 + num2;
 
-    if(somma % 2){ 
-        return 'dispari' ;
-    }
-    
+    if(somma % 2) return 'dispari' ;
+
     return 'pari';
 }
