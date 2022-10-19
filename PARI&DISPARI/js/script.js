@@ -27,16 +27,16 @@ inputBtn.addEventListener('click',function(){
 
     //blocca il programma se non vengono inseriti entrambi i valori
     if(userNum.value === "" || userChoice.value === "" ){
+        winResult.classList.add('text-warning');
         winResult.innerHTML = 'INSERISCI VALORI VALIDI!';
     }else{
         //verifico il vincitore
+        winResult.classList.remove('text-warning');
         let cpuNum = randomNumber();
         outputCpu.innerHTML = `Il numero scelto dalla CPU é ${cpuNum}.`
         if(userChoice.value === checkPariDispari(userNum.value, cpuNum)){
-            console.log('utente vince');
             winResult.innerHTML = 'UTENTE VINCE!'
         }else{
-            console.log('cpu vince');
             winResult.innerHTML = 'CPU VINCE!'
             }
         }
@@ -53,7 +53,6 @@ function randomNumber(){
 function checkPariDispari(num1, num2){
     // console.log(num1, num2);
     const somma = parseInt(num1) + parseInt(num2);
-    console.log(somma);
     if(somma % 2) return 'dispari' ;
 
     return 'pari';
