@@ -15,13 +15,11 @@ const outputCpu = document.querySelector('.num_cpu');
 const userNum = document.querySelector('.num_utente');
 
 
-//resetta tutti campi
 resetBtn.addEventListener('click', function(){
     resetGame(userChoice, userNum, winResult, outputCpu);
-})
+    })
 
 inputBtn.addEventListener('click',function(){
-    //blocca il programma se non vengono inseriti entrambi i valori
     checkWinner(userNum, userChoice, winResult, outputCpu);
     })
 
@@ -42,6 +40,7 @@ function checkPariDispari(num1, num2){
     return 'pari';
 }
 
+//resetta tutti campi
 function resetGame(userChoice, userNum, winResult, outputCpu){
     userChoice.selectedIndex = 0;
     userNum.selectedIndex = 0;
@@ -49,6 +48,7 @@ function resetGame(userChoice, userNum, winResult, outputCpu){
     outputCpu.innerHTML = '';
 }
 
+ //blocca il programma se non vengono inseriti entrambi i valori
 function checkWinner(userNum, userChoice, winResult, outputCpu){
     if(userNum.value === "" || userChoice.value === "" ){
         winResult.classList.add('text-warning');
