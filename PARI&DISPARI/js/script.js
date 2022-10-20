@@ -33,14 +33,16 @@ inputBtn.addEventListener('click',function(){
         //verifico il vincitore
         winResult.classList.remove('text-warning');
         let cpuNum = randomNumber();
-        outputCpu.innerHTML = `Il numero scelto dalla CPU é ${cpuNum}.`
+        outputCpu.innerHTML = `Il numero scelto dalla CPU é ${cpuNum}.`;
         if(userChoice.value === checkPariDispari(userNum.value, cpuNum)){
-            winResult.innerHTML = 'UTENTE VINCE!'
+            winResult.innerHTML = 'UTENTE VINCE!';
         }else{
-            winResult.innerHTML = 'CPU VINCE!'
+            winResult.innerHTML = 'CPU VINCE!';
             }
         }
     })
+
+
 
 // funzioni
 
@@ -51,7 +53,6 @@ function randomNumber(){
 
 //fa la somma dei due numeri e verifica se pari o dispari
 function checkPariDispari(num1, num2){
-    // console.log(num1, num2);
     const somma = parseInt(num1) + parseInt(num2);
     if(somma % 2) return 'dispari' ;
 
