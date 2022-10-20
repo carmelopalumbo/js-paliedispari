@@ -12,34 +12,17 @@ const inputBtn = document.querySelector('.gioca');
 const resetBtn = document.querySelector('.reset');
 const winResult = document.querySelector('.result');
 const outputCpu = document.querySelector('.num_cpu');
-let userNum = document.querySelector('.num_utente');
+const userNum = document.querySelector('.num_utente');
 
 
 //resetta tutti campi
 resetBtn.addEventListener('click', function(){
-    userChoice.selectedIndex = 0;
-    userNum.selectedIndex = 0;
-    winResult.innerHTML = '';
-    outputCpu.innerHTML = '';
+    resetGame(userChoice, userNum, winResult, outputCpu);
 })
 
 inputBtn.addEventListener('click',function(){
-
     //blocca il programma se non vengono inseriti entrambi i valori
-    if(userNum.value === "" || userChoice.value === "" ){
-        winResult.classList.add('text-warning');
-        winResult.innerHTML = 'INSERISCI VALORI VALIDI!';
-    }else{
-        //verifico il vincitore
-        winResult.classList.remove('text-warning');
-        let cpuNum = randomNumber();
-        outputCpu.innerHTML = `Il numero scelto dalla CPU é ${cpuNum}.`;
-        if(userChoice.value === checkPariDispari(userNum.value, cpuNum)){
-            winResult.innerHTML = 'UTENTE VINCE!';
-        }else{
-            winResult.innerHTML = 'CPU VINCE!';
-            }
-        }
+    checkWinner(userNum, userChoice, winResult, outputCpu);
     })
 
 
@@ -57,4 +40,28 @@ function checkPariDispari(num1, num2){
     if(somma % 2) return 'dispari' ;
 
     return 'pari';
+}
+
+function resetGame(userChoice, userNum, winResult, outputCpu){
+    userChoice.selectedIndex = 0;
+    userNum.selectedIndex = 0;
+    winResult.innerHTML = '';
+    outputCpu.innerHTML = '';
+}
+
+function checkWinner(userNum, userChoice, winResult, outputCpu){
+    if(userNum.value === "" || userChoice.value === "" ){
+        winResult.classList.add('text-warning');
+        winResult.innerHTML = 'INSERISCI VALORI VALIDI!';
+    }else{
+        //verifico il vincitore
+        winResult.classList.remove('text-warning');
+        let cpuNum = randomNumber();
+        outputCpu.innerHTML = `Il numero scelto dalla CPU é ${cpuNum}.`;
+        if(userChoice.value === checkPariDispari(userNum.value, cpuNum)){
+            winResult.innerHTML = 'UTENTE VINCE!';
+        }else{
+            winResult.innerHTML = 'CPU VINCE!';
+            }
+        }
 }
